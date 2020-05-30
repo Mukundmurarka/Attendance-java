@@ -26,21 +26,110 @@ public class Admin_Section extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        viewstu = new javax.swing.JButton();
+        addstu = new javax.swing.JButton();
+        viewtea = new javax.swing.JButton();
+        addtea = new javax.swing.JButton();
+        viewatt = new javax.swing.JButton();
+        stulog = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setText("ADMIN SECTION");
+
+        viewstu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        viewstu.setText("VIEW STUDENT ");
+        viewstu.setToolTipText("VIEW STUDENT");
+
+        addstu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        addstu.setText("ADD STUDENT");
+        addstu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addstuActionPerformed(evt);
+            }
+        });
+
+        viewtea.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        viewtea.setText("VIEW TEACHER");
+
+        addtea.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        addtea.setText("ADD TEACHER");
+        addtea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addteaActionPerformed(evt);
+            }
+        });
+
+        viewatt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        viewatt.setText("VIEW ATTENDANCE");
+
+        stulog.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        stulog.setText("LOGOUT");
+
+        jButton7.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addstu, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewstu, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewtea, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addtea, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewatt)
+                            .addComponent(stulog, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewstu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addstu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewtea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addtea, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewatt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(stulog)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addteaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addteaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addteaActionPerformed
+
+    private void addstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addstuActionPerformed
+        // TODO add your handling code here:
+        new STUDENT_RAGISTRATION().setVisible(true);
+    }//GEN-LAST:event_addstuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +167,14 @@ public class Admin_Section extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addstu;
+    private javax.swing.JButton addtea;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton stulog;
+    private javax.swing.JButton viewatt;
+    private javax.swing.JButton viewstu;
+    private javax.swing.JButton viewtea;
     // End of variables declaration//GEN-END:variables
 }
