@@ -97,6 +97,9 @@
         <Property name="text" type="java.lang.String" value="VIEW STUDENT "/>
         <Property name="toolTipText" type="java.lang.String" value="VIEW STUDENT"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewstuActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addstu">
       <Properties>

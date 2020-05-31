@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,6 +15,8 @@
  * @author MUKUND MURARKA
  */
 public class STUDENT_RAGISTRATION extends javax.swing.JFrame {
+    public Connection cen;
+    public PreparedStatement pst;
 
     /**
      * Creates new form STUDENT_RAGISTRATION
@@ -70,6 +78,11 @@ public class STUDENT_RAGISTRATION extends javax.swing.JFrame {
         jLabel8.setText("MOBILE NO");
 
         jButton1.setText("SAVE ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,6 +158,27 @@ public class STUDENT_RAGISTRATION extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            String sql ="INSERT INTO `student_detail`(`first name`, `last name`, `rollno`, `branch`, `semester`, `email id`, `mobile no`) VALUES (?,?,?,?,?,?,?)";
+            cen = DriverManager.getConnection("jdbc:mysql://localhost:3306/admin_detail?zeroDateTimeBehavior=convertToNull","root","");
+            pst = cen.prepareStatement(sql);
+            pst.setString(1, jstufname.getText());
+            pst.setString(2, jstulname.getText());
+            pst.setInt(3, Integer.parseInt(jsturoll.getText()));
+            pst.setString(4, jstubranch.getText());
+            pst.setString(5, jstusem.getText());
+            pst.setString(6, jstuemail.getText());
+            pst.setInt(7, Integer.parseInt(jstumobile.getText()));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"successfull ragistered");
+        }catch(Exception ece){
+            JOptionPane.showMessageDialog(null,"unsuccessfull register");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

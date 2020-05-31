@@ -46,6 +46,11 @@ public class Admin_Section extends javax.swing.JFrame {
         viewstu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewstu.setText("VIEW STUDENT ");
         viewstu.setToolTipText("VIEW STUDENT");
+        viewstu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewstuActionPerformed(evt);
+            }
+        });
 
         addstu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         addstu.setText("ADD STUDENT");
@@ -130,6 +135,11 @@ public class Admin_Section extends javax.swing.JFrame {
         // TODO add your handling code here:
         new STUDENT_RAGISTRATION().setVisible(true);
     }//GEN-LAST:event_addstuActionPerformed
+
+    private void viewstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewstuActionPerformed
+        // TODO add your handling code here:
+       new View_Student().setVisible(true);
+    }//GEN-LAST:event_viewstuActionPerformed
 
     /**
      * @param args the command line arguments
