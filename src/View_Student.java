@@ -2,7 +2,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,8 +30,9 @@ public class View_Student extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/admin_detail?zeroDateTimeBehavior=convertToNull","root","");
             pst = con.prepareStatement(sql);
            
-            pst.executeQuery();
-            JOptionPane.showMessageDialog(null,"successfull ragistered");
+            ResultSet rs=pst.executeQuery();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            //JOptionPane.showMessageDialog(null,"successfull ragistered");
         }catch(Exception ece){
             JOptionPane.showMessageDialog(null,"unsuccessfull register");
         }
