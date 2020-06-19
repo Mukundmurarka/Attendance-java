@@ -129,6 +129,7 @@ public class Admin_Section extends javax.swing.JFrame {
 
     private void addteaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addteaActionPerformed
         // TODO add your handling code here:
+        new Teacher_ragistration().setVisible(true);
     }//GEN-LAST:event_addteaActionPerformed
 
     private void addstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addstuActionPerformed
