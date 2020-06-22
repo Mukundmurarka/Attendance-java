@@ -1,5 +1,10 @@
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +18,7 @@ import java.sql.Connection;
  */
 public class view_teacher extends javax.swing.JFrame {
     public Connection cen=null;
-    public PreparedStament psst=null;
+    public PreparedStatement psst=null;
     
     
 
@@ -22,6 +27,21 @@ public class view_teacher extends javax.swing.JFrame {
      */
     public view_teacher() {
         initComponents();
+        try{
+             Class.forName("com.mysql.jdbc.Driver");
+            String sql ="SELECT * FROM teacherdetail";
+            cen = DriverManager.getConnection("jdbc:mysql://localhost:3306/admin_detail?zeroDateTimeBehavior=convertToNull","root","");
+            psst = cen.prepareStatement(sql);
+           
+            ResultSet rs=psst.executeQuery();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            
+        }catch(Exception exe){
+             JOptionPane.showMessageDialog(null,"NO DATA IN TABLE");
+            
+            
+            
+        }
     }
 
     /**
