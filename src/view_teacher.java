@@ -151,7 +151,7 @@ public class view_teacher extends javax.swing.JFrame {
             psst = cen.prepareStatement(sql1);
             psst.setString(1,teacherid.getText());
             psst.executeUpdate();
-            
+            JOptionPane.showMessageDialog(null,"deleted successfully");
             String sql2 ="SELECT * FROM teacherdetail";
             psst=cen.prepareStatement(sql2);
             ResultSet rs=psst.executeQuery();
