@@ -9,6 +9,10 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     public Connection  con;
     public PreparedStatement pst;
+    int user =0;
+    int userAdmin=1;
+    int userTeacher=2;
+   
     
     public Login() {
         initComponents();
@@ -144,6 +148,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(user==0){
+            JOptionPane.showMessageDialog(null, "select any user");
+        }
+        else if(user==1){
         try{
             String quersy= "SELECT * FROM `adminm` WHERE `Email_id`=? and `password`=?";
         Class.forName("com.mysql.jdbc.Driver");
@@ -163,11 +171,35 @@ public class Login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "login failed");
         
     }
+        }else{
+            try{
+            String quersy= "SELECT * FROM `teacherdetail` WHERE `EMAILID`=? and `PASSWORD`=?";
+        Class.forName("com.mysql.jdbc.Driver");
+        con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/admin_detail?zeroDateTimeBehavior=convertToNull","root","");
+        pst = con.prepareStatement(quersy);
+        pst.setString(1, jTextField1.getText());
+        pst.setString(2, jTextField2.getText());
+        pst.executeQuery();
+        if (pst.executeQuery().next()){
+        JOptionPane.showMessageDialog(null, "login successfully");
+        new Teacher_Section().setVisible(true);
+        }else{
+             JOptionPane.showMessageDialog(null, "Lodin id and password is invailid");
+            
+        }
+    }catch(Exception ex){
+        JOptionPane.showMessageDialog(null, "login failed");
+        
+    }
+            
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jadminbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jadminbtnActionPerformed
         // TODO add your handling code here:
         if(jadminbtn.isSelected()){
+            user=userAdmin;
             jfacultybtn.setSelected(false);
         }
     }//GEN-LAST:event_jadminbtnActionPerformed
@@ -175,6 +207,7 @@ public class Login extends javax.swing.JFrame {
     private void jfacultybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfacultybtnActionPerformed
         // TODO add your handling code here:
          if(jfacultybtn.isSelected()){
+             user=userTeacher;
             jadminbtn.setSelected(false);
         }
     }//GEN-LAST:event_jfacultybtnActionPerformed
